@@ -1,5 +1,15 @@
 ttc = ttc or {}
 -------------------------------------------------------------------
+-- [ LOCAL FUNCTIONS ]
+-------------------------------------------------------------------
+local function getTabs(tabs)
+    local tabText = ""
+    for i=0, tabs-1 , 1 do
+        tabText = tabText.."\t"
+    end
+    return tabText
+end
+-------------------------------------------------------------------
 -- [ NUMBER FUNCTIONS ]
 -------------------------------------------------------------------
 function ttc.inc(value, amount)
@@ -34,11 +44,16 @@ end
 -------------------------------------------------------------------
 -- [ IO FUNCTIONS ]
 -------------------------------------------------------------------
+function ttc.removeFile(path, filename)
+    os.remove(path..filename)
+end
+
 function ttc.openFile(path, filename, mode)
     local filemode = mode
     if mode == nil then filemode = "a" end
     return io.open(path..filename, filemode)
 end
+
 function ttc.closeFile(file)
     file:flush()
     file:close()
@@ -48,14 +63,10 @@ function ttc.writeLn(file, tabs, text)
     file:write(getTabs(tabs)..text.."\n")
 end
 -------------------------------------------------------------------
--- [ LOCAL FUNCTIONS ]
+-- [ SYSTEM FUNCTIONS ]
 -------------------------------------------------------------------
-local function getTabs(tabs)
-    local tabText = ""
-    for i=0, tabs-1 , 1 do
-        tabText = tabText.."\t"
-    end
-    return tabText
+function ttc.isConsole(source)
+    return source <= 0
 end
 
 return ttc
