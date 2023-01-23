@@ -24,6 +24,9 @@ end
 -------------------------------------------------------------------
 -- [ TEXT FUNCTIONS ]
 -------------------------------------------------------------------
+function ttc.charWrap(text, wrapper)
+    return string.format("%s%s%s", wrapper, text, wrapper)
+end
 function ttc.writeColumn(file, tabs, name, textToAppend)
     ttc.writeLn(file, tabs, string.format("['%s'] = %s", name, textToAppend))
 end
