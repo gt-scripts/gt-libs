@@ -142,12 +142,12 @@ end
 
 function ttc.client.removeBlip(modulo, resource, blip)
     if(blip) then
-        TriggerEvent("Logs:Log", "TRACE", resource, string.format("Remover blip: ^3%d^7, de: ^3%s^7, módulo: %s", parseInt(blip), resource, modulo))
+        TriggerEvent("Logs:Log", "TRACE", resource, string.format("Remover blip: ^3%d^7, de: ^3%s^7, módulo: %s", tonumber(blip), resource, modulo))
         local blips = getBlips(modulo, resource)
         if(blips) then
             local b = blips[blip]
             if(b) then
-                TriggerEvent("Logs:Log", "TRACE", resource, string.format("Blip: ^3%d^7 encontrado, removendo...", parseInt(blip)))
+                TriggerEvent("Logs:Log", "TRACE", resource, string.format("Blip: ^3%d^7 encontrado, removendo...", tonumber(blip)))
                 RemoveBlip(b)
             end
             blips[blip] = nil
