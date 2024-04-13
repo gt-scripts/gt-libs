@@ -1,2 +1,2 @@
-# ttc-libs
-Library for use with TTC Resources
+# gt-libs
+Library for use with GT Resources
