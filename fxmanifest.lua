@@ -1,20 +1,22 @@
-fx_version 'cerulean'
-game 'gta5'
+fx_version "cerulean"
+game "gta5"
 
-description 'TTC Lua Library'
-version '1.0.0'
+description "GT FiveM Library"
+author "GFive"
+version "1.2.0"
 
 shared_scripts {
-    'shared/*.lua'
+    "shared/*.lua"
 }
 
-server_script {
-    '@oxmysql/lib/MySQL.lua',
-    'server/*.lua'
+server_scripts {
+    "server/*.lua"
 }
 
 client_scripts {
-    'client/*.lua'
+    "client/*.lua"
 }
 
-lua54 'yes'
+dependencies {}
+
+lua54 "yes"
