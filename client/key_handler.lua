@@ -2611,7 +2611,9 @@ KeyHandler = {
     end,
     GetKeyFrontend = function(key, noFormat)
         local keyData = KeyHandler.GetKeyData(key)
-        if(noFormat) then return string.format("%s", KeyHandler.Keys[key].CustomKey) end
+        if (noFormat) then
+            return string.format("%s", KeyHandler.Keys[key].CustomKey)
+        end
         return string.format("[%s] ", KeyHandler.Keys[key].CustomKey)
     end,
     LoadKeyMap = function()
