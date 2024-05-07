@@ -30,6 +30,10 @@ local statusBank = {
     }
 }
 
+---Return blips table
+---@param modulo string
+---@param script string
+---@return table
 local function getBlips(modulo, script)
     local blips = {}
     if (Blips[modulo]) then
@@ -41,6 +45,10 @@ local function getBlips(modulo, script)
     return blips
 end
 
+---Set blips table
+---@param modulo string
+---@param script string
+---@param blips table
 local function setBlips(modulo, script, blips)
     if (not Blips[modulo]) then
         Blips[modulo] = {}

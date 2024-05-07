@@ -2590,13 +2590,19 @@ KeyHandler = {
         ['b_1056'] = 'PageUp',
         ['b_2000'] = 'Space'
     },
+    ---Translate key from input map to key mapping
+    ---@param key string
+    ---@return string
     TranslateKey = function(key)
         if (string.find(key, "t_")) then
-            return string.gsub(key, "t_", "")
+            return string.gsub(key, "t_", "")[1]
         else
             return KeyHandler.SpecialkeyCodes[key]
         end
     end,
+    ---Return key data object from respective input key
+    ---@param key string
+    ---@return table
     GetKeyData = function(key)
         if key then
             return KeyHandler.Keys[key]
@@ -2609,6 +2615,10 @@ KeyHandler = {
             CustomKey = "NOT_MAPPED"
         }
     end,
+    ---Return readable key from input
+    ---@param key string
+    ---@param noFormat boolean
+    ---@return string
     GetKeyFrontend = function(key, noFormat)
         local keyData = KeyHandler.GetKeyData(key)
         if (noFormat) then
