@@ -3,7 +3,7 @@ game "gta5"
 
 description "GT FiveM Library"
 author "GFive"
-version "1.2.0"
+version "VERSION_IDENTIFIER"
 
 shared_scripts {
     "shared/*.lua"
