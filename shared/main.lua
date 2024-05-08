@@ -10,34 +10,23 @@ end
 
 local function toString(o)
     if type(o) == 'table' then
-        local s = '{ '
+        local parts = {}
         for k, v in pairs(o) do
-            if type(k) ~= 'number' then
-                k = '"' .. k .. '"'
-            end
-            if s ~= '{ ' then
-                s = s .. ','
-            end
-            s = s .. '[' .. k .. '] = ' .. toString(v)
+            local key = type(k) == 'number' and '[' .. k .. ']' or '["' .. tostring(k) .. '"]'
+            table.insert(parts, key .. ' = ' .. toString(v))
         end
-        return s .. ' }'
+        return '{ ' .. table.concat(parts, ', ') .. ' }'
     else
         return tostring(o)
     end
 end
 
 function GTShared.Inc(value, amount)
-    if (amount == nil) then
-        return value + 1
-    end
-    return value + amount
+    return value + (amount or 1)
 end
 
 function GTShared.Dec(value, amount)
-    if (amount == nil) then
-        return value - 1
-    end
-    return value - amount
+    return value - (amount or 1)
 end
 
 function GTShared.CharWrap(text, wrapper)
