@@ -13,7 +13,7 @@ local function toString(o)
         local parts = {}
         for k, v in pairs(o) do
             local key = type(k) == 'number' and '[' .. k .. ']' or '["' .. tostring(k) .. '"]'
-            table.insert(parts, key .. ' = ' .. toString(v))
+            parts[#parts + 1] = key .. ' = ' .. toString(v)
         end
         return '{ ' .. table.concat(parts, ', ') .. ' }'
     else
